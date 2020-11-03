@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ###################
-### GIT CHECKER ###
+ ### GIT CHECKER ###
 ###################
 
 ### GLOBAL ###
