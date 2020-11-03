@@ -1,8 +1,10 @@
 #!/bin/bash
 
 ###################
- ### GIT CHECKER ###
+### GIT CHECKER ###
 ###################
+
+#https://stackoverflow.com/questions/3258243/check-if-pull-needed-in-git
 
 ### GLOBAL ###
 
