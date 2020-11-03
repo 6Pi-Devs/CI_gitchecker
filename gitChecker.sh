@@ -6,7 +6,7 @@
 
 ### GLOBAL ###
 
-GIT_PATH="../testing/"
+GIT_PATH="."
 
 
 ### GIT ACTIONS ###
