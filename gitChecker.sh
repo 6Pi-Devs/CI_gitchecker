@@ -22,11 +22,15 @@ git_checkout(){
 }
 
 git_pull(){
-    git -C $GIT_PATH pull
+    git -C $GIT_PATH pull --rebase
 }
 
 git_push(){
     git -C $GIT_PATH push
+}
+
+git_fetch(){ 
+    git -C $GIT_PATH fetch
 }
 
 git_secure_push(){
@@ -41,8 +45,8 @@ git_secure_push(){
 
 
 git_checker(){
-    echo $1
-    git fetch
+
+    git_fetch
 
     UPSTREAM=${1:-'@{u}'}
     LOCAL=$(git rev-parse @)
@@ -50,7 +54,7 @@ git_checker(){
     BASE=$(git merge-base @ "$UPSTREAM")
 
     if [ $LOCAL = $REMOTE ]; then
-	 echo "Up-to-date"
+	echo "Up-to-date"
     elif [ $LOCAL = $BASE ]; then
         echo "Need to pull"
     elif [ $REMOTE = $BASE ]; then
@@ -63,9 +67,16 @@ git_checker(){
 
 ### MAIN ###
 main(){
-   #git_checker "Hello"
-   git_secure_push "main"
+    git_checker "main"
 
 }
-main
+
+
+### LOOP ###
+while true
+do
+    main
+    #24H
+    sleep 86400
+done
 
