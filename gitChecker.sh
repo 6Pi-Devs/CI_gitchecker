@@ -67,7 +67,7 @@ git_checker(){
 
 ### MAIN ###
 main(){
-    git_checker "main"
+    git_checker
 
 }
 
