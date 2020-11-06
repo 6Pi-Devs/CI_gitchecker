@@ -28,3 +28,11 @@ git_secure_push(){
     git_stage_changes "auto_commit"
     git_push
 }
+
+git_repo_name(){
+    basename `git -C $GIT_PATH rev-parse --show-toplevel`
+}
+
+git_branch_name(){
+    git -C $GIT_PATH branch
+}
