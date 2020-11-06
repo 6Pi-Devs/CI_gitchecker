@@ -1,5 +1,5 @@
 #!/bin/bash
-
+#https://stackoverflow.com/questions/3258243/check-if-pull-needed-in-git
 ######################
 ###  GIT CHECKER   ###
 ### Auth: Yupipi93 ###
