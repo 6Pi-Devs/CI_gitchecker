@@ -1,25 +1,19 @@
 #!/bin/bash
 
-###################
-### GIT CHECKER ###
-###################
+######################
+###  GIT CHECKER   ###
+### Auth: Yupipi93 ###
+######################
 
-### INFO ###
-#https://stackoverflow.com/questions/3258243/check-if-pull-needed-in-git
-
-
-### GIT ACTIONS ###
-source lib/gitFunctions.sh
 
 ### GLOBAL ###
+BRANCH="main"
 GIT_PATH="."
-MINUTES=10
-UPDATE_TIME=$(($MINUTES*60))
+UPDATE_TIME=10 #in minutes
 
-
-
-
-
+### IMPORT ###
+source lib/gitFunctions.sh
+source lib/getParameters.sh
 
 
 git_checker(){
@@ -35,6 +29,7 @@ git_checker(){
 	echo "Up-to-date"
     elif [ $LOCAL = $BASE ]; then
         echo "Need to pull"
+        source pullActions.sh
     elif [ $REMOTE = $BASE ]; then
         echo "Need to push"
     else
@@ -43,10 +38,15 @@ git_checker(){
 
 }
 
+
+
+
 ### MAIN ###
 main(){
-    git_checker
-
+    #git_checker $BRANCH
+    echo $BRANCH
+    echo $GIT_PATH
+    echo $UPDATE_TIME
 }
 
 
@@ -54,6 +54,6 @@ main(){
 while true
 do
     main
-    sleep $UPDATE_TIME
+    sleep $(($UPDATE_TIME*60))
 done
 
