@@ -29,10 +29,10 @@ git_checker(){
     BASE=$(git merge-base @ "$UPSTREAM")
 
     if [ $LOCAL = $REMOTE ]; then
-	echo "--> Up-to-date"
+	    echo "--> Up-to-date"
     elif [ $LOCAL = $BASE ]; then
         echo "--> Need to pull"
-        source pullActions.sh
+        #source pullActions.sh
     elif [ $REMOTE = $BASE ]; then
         echo "--> Need to push"
     else
