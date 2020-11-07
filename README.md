@@ -120,7 +120,7 @@ Free for all :D
 
 Sergio Conejero Vicente - [@twitter_handle](https://twitter.com/Yupipi93) - yupipi93@gmail.com
 
-Project Link: [https://github.com/github_username/repo_name](https://https://github.com/yupipi93/gitChecker)
+Project Link: [https://https://github.com/yupipi93/gitChecker](https://https://github.com/yupipi93/gitChecker)
 
 
 
