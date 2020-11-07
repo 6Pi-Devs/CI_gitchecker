@@ -67,9 +67,10 @@ to display help.
 ```
 Syntax: ./gitChecker.sh [OPTIONS]
 OPTIONS:
--b 'branch'   Branc name to check updates.    [DEFAULT:current]
--p 'path'     Path of repository folder.      [DEFAULT:..]
--u 'update'   Update time in minutes          [DEFAULT:10]
+-b 'branch'   Branc name to check updates.        [DEFAULT:current]
+-p 'path'     Path of repository folder.          [DEFAULT:..]
+-u 'update'   Update time in minutes.             [DEFAULT:10]
+-f            Force update. Discards local files. [D: MERGE]
 -h            Print this Help.
 ```
 
@@ -85,7 +86,7 @@ Example:
 The path where the target repository is located (you don't need to configure it if you put gitChecker into the root folder)
 Example: 
 ```sh
-./gitChecker.sh -p /home/USERNAME/MyRepo/
+./gitChecker.sh -p /home/USERNAME/MYREPO/
 ```
 
 The waiting time between updates (default 10 minutes)
@@ -94,19 +95,17 @@ Example: ./gitChecker.sh -u 1 (will check for updates every 1 minute)
 If we want to force the update (default merged)
 Example 
 ```sh
-./gitChecker.sh -force
+./gitChecker.sh -f
 ```
+You can choose the update method: Merged or Forced.
+Merged (default): Merges local changes with remote changes. (may cause conflicts)
+Forced: Discards local changes. (-f)
 
 Complete example: 
 ```sh
-./gitChecker.sh -b production -p /home/USERNAME/MyRepo/ -u 1 -force
+./gitChecker.sh -b production -p /home/USERNAME/MyRepo/ -u 1 -f
 ```
 
-Translated with www.DeepL.com/Translator (free version)
-
-You can choose the update method: Merged or Forced.
-Merged: Merges local changes with remote changes. (may cause conflicts)
-Forced: Discards local changes.
 
 <!-- Footer -->
 

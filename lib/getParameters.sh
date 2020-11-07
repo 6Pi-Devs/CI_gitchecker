@@ -4,9 +4,10 @@ Help(){
     echo
     echo "Syntax: ./gitChecker.sh [OPTIONS]"
     echo "OPTIONS:"
-    echo "-b 'branch'   Branc name to check updates.    [DEFAULT:current]"
-    echo "-p 'path'     Path of repository folder.      [DEFAULT:..]"
-    echo "-u 'update'   Update time in minutes          [DEFAULT:10]"
+    echo "-b 'branch'   Branc name to check updates.        [DEFAULT:current]"
+    echo "-p 'path'     Path of repository folder.          [DEFAULT:..]"
+    echo "-u 'update'   Update time in minutes.             [DEFAULT:10]"
+    echo "-f            Force update. Discards local files. [D: MERGE]"
     echo "-h            Print this Help."
     echo
     exit 0
@@ -15,12 +16,13 @@ Help(){
 
 
 ### GET PARAMETERS ###
-while getopts "b:p:u:h" options;
+while getopts "b:p:u:fh" options;
 do
     case $options in
         b) BRANCH=${OPTARG};;
         p) GIT_PATH=${OPTARG};;
         u) UPDATE_TIME=${OPTARG};;
+        f) FORCE_UPDATE_SELECTED=1;;
         h) Help;;
     esac
 done

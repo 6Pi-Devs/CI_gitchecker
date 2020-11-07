@@ -10,6 +10,7 @@
 BRANCH=
 GIT_PATH=".."
 UPDATE_TIME=10 #in minutes
+FORCE_UPDATE_SELECTED=
 
 ### IMPORT ###
 source lib/gitFunctions.sh
@@ -62,11 +63,13 @@ next_update(){
 main(){
     while true
     do
-        if [ $BRANCH ]; then
-            echo "Change to branch: $BRANCH"
-            git_secure_checkout $BRANCH
-        fi
-        git_checker $BRANCH
+        #if [ $BRANCH ]; then
+        #    echo "Change to branch: $BRANCH"
+        #    git_secure_checkout $BRANCH
+        #fi
+        #git_checker $BRANCH
+        UPDATE_PROYECT
+        
         next_update
     done
 }

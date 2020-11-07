@@ -86,11 +86,20 @@ git_get_local_remote_compare(){
 
 
 ### UPDATE METHODS ###
-
-UPDATE_MERGE(){
+merge_update(){
     git_secure_push
 }
 
-UPDATE_FORCE(){
+force_update(){
     git_force_pull
+}
+
+
+UPDATE_PROYECT(){
+    if [ $FORCE_UPDATE_SELECTED ]; then
+        echo "FORCE"
+    else
+        echo "MERGE"
+    fi
+
 }
