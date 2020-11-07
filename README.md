@@ -29,7 +29,7 @@ Git Checker
 [issues-shield]: https://img.shields.io/github/issues/yupipi93/gitChecker.svg?style=flat-square
 [issues-url]: https://github.com/yupipi93/gitChecker/issues
 
-[license-shield]: https://img.shields.io/github/license/yupipi93/gitChecker.svg?style=flat-square
+[license-shield]: https://licensebuttons.net/l/zero/1.0/80x15.png?style=flat-square
 [license-url]: https://github.com/yupipi93/gitChecker/blob/master/LICENSE.txt
 
 [![License: CC0-1.0](https://licensebuttons.net/l/zero/1.0/80x15.png)](http://creativecommons.org/publicdomain/zero/1.0/)
