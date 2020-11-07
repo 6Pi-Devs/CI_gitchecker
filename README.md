@@ -54,6 +54,7 @@ All you have to do is upload the changes to your branch and GitChecker will do t
 To get started, download GitChecker from this repository and copy it to your repository's root folder.
 (We recommend downloading the zip and extracting it, not cloning it)
 
+
 It is usually used in the production branch, when the code is on a remote server.
 
 To run it, you need to go into the gitChecker folder and run 

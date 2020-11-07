@@ -63,12 +63,11 @@ next_update(){
 main(){
     while true
     do
-        #if [ $BRANCH ]; then
-        #    echo "Change to branch: $BRANCH"
-        #    git_secure_checkout $BRANCH
-        #fi
-        #git_checker $BRANCH
-        UPDATE_PROYECT
+        if [ $BRANCH ]; then
+            echo "Change to branch: $BRANCH"
+            git_secure_checkout $BRANCH
+        fi
+        git_checker $BRANCH
         
         next_update
     done
