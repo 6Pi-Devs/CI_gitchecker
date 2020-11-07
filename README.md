@@ -28,8 +28,12 @@ Git Checker
 [stars-url]: https://github.com/yupipi93/gitChecker/stargazers
 [issues-shield]: https://img.shields.io/github/issues/yupipi93/gitChecker.svg?style=flat-square
 [issues-url]: https://github.com/yupipi93/gitChecker/issues
+
 [license-shield]: https://img.shields.io/github/license/yupipi93/gitChecker.svg?style=flat-square
 [license-url]: https://github.com/yupipi93/gitChecker/blob/master/LICENSE.txt
+
+[![License: CC0-1.0](https://licensebuttons.net/l/zero/1.0/80x15.png)](http://creativecommons.org/publicdomain/zero/1.0/)
+
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/sergio-conejero-vicente-61226aa5/
 [product-screenshot]: images/screenshot.png
