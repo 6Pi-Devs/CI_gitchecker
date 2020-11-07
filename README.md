@@ -56,9 +56,12 @@ To get started, download GitChecker from this repository and copy it to your rep
 
 It is usually used in the production branch, when the code is on a remote server.
 
-To run it, you need to go into the gitChecker folder and run ./gitChecker.sh
+To run it, you need to go into the gitChecker folder and run 
+```sh
+./gitChecker.sh
+```
 
-you can run 
+Or you can run 
 ```sh
 ./gitChecker.sh -h 
 ```
