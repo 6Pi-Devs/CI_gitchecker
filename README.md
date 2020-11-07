@@ -70,7 +70,7 @@ OPTIONS:
 -b 'branch'   Branc name to check updates.        [DEFAULT:current]
 -p 'path'     Path of repository folder.          [DEFAULT:..]
 -u 'update'   Update time in minutes.             [DEFAULT:10]
--f            Force update. Discards local files. [D: MERGE]
+-f            Force update. Discards local files. [DEFAULT:merge]
 -h            Print this Help.
 ```
 
@@ -105,6 +105,24 @@ Complete example:
 ```sh
 ./gitChecker.sh -b production -p /home/USERNAME/MyRepo/ -u 1 -f
 ```
+
+
+<!-- LICENSE -->
+## License
+
+Public Domain.
+Distributed under CC0 License. See `LICENSE.txt` for more information.
+Free for all :D
+
+
+<!-- CONTACT -->
+## Contact
+
+Sergio Conejero Vicente - [@twitter_handle](https://twitter.com/Yupipi93) - yupipi93@gmail.com
+
+Project Link: [https://github.com/github_username/repo_name](https://https://github.com/yupipi93/gitChecker)
+
+
 
 
 <!-- Footer -->

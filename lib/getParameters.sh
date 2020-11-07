@@ -7,7 +7,7 @@ Help(){
     echo "-b 'branch'   Branc name to check updates.        [DEFAULT:current]"
     echo "-p 'path'     Path of repository folder.          [DEFAULT:..]"
     echo "-u 'update'   Update time in minutes.             [DEFAULT:10]"
-    echo "-f            Force update. Discards local files. [D: MERGE]"
+    echo "-f            Force update. Discards local files. [DEFAULT:merge]"
     echo "-h            Print this Help."
     echo
     exit 0
