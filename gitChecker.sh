@@ -7,7 +7,7 @@
 
 
 ### GLOBAL ###
-BRANCH="main"
+BRANCH=
 GIT_PATH=".."
 UPDATE_TIME=10 #in minutes
 
@@ -21,22 +21,23 @@ git_checker(){
     echo "Target repository: $(git_repo_name)"
     echo "           Branch: $(git_branch_name)"
     echo "Geting info..."     
-    git_fetch
+    git_get_remote_info
 
     UPSTREAM=${1:-'@{u}'}
-    LOCAL=$(git rev-parse @)
-    REMOTE=$(git rev-parse "$UPSTREAM")
-    BASE=$(git merge-base @ "$UPSTREAM")
+    LOCAL=$(git -C $GIT_PATH rev-parse @)
+    REMOTE=$(git -C $GIT_PATH rev-parse "$UPSTREAM")
+    BASE=$(git -C $GIT_PATH merge-base @ "$UPSTREAM")
 
     if [ $LOCAL = $REMOTE ]; then
 	    echo "--> Up-to-date"
     elif [ $LOCAL = $BASE ]; then
         echo "--> Need to pull"
-        #source pullActions.sh
+        source pullActions.sh
     elif [ $REMOTE = $BASE ]; then
         echo "--> Need to push"
     else
         echo "--> Diverged"
+        source pullActions.sh
     fi
 
 }

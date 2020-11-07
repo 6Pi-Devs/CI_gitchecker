@@ -10,17 +10,23 @@ git_checkout(){
     git -C $GIT_PATH checkout $branch
 }
 
+git_get_remote_info(){ 
+    git -C $GIT_PATH fetch
+}
+
 git_pull(){
-    git -C $GIT_PATH pull --rebase
+    git -C $GIT_PATH pull
+}
+
+git_secure_pull(){
+    git_stage_changes "auto_commit"
+    git -C $GIT_PATH pull
 }
 
 git_push(){
     git -C $GIT_PATH push
 }
 
-git_fetch(){ 
-    git -C $GIT_PATH fetch
-}
 
 git_secure_push(){
     git_stage_changes "auto_commit"
@@ -36,3 +42,4 @@ git_repo_name(){
 git_branch_name(){
     git -C $GIT_PATH branch
 }
+
