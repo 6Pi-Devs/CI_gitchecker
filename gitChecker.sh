@@ -16,6 +16,13 @@ source lib/gitFunctions.sh
 source lib/getParameters.sh
 
 
+update_actions(){
+        echo ""
+        sleep 2
+        echo "UPDATING PROYECT"
+        source pullActions.sh
+}
+
 git_checker(){
     REMOTE_BRANCH=$1
     echo "Target repository: $(git_repo_name)"
@@ -31,12 +38,12 @@ git_checker(){
 	    echo "--> Up-to-date"
     elif [ $LOCAL = $BASE ]; then
         echo "--> Need to pull"
-        source pullActions.sh
+        update_actions
     elif [ $REMOTE = $BASE ]; then
         echo "--> Need to push"
     else
         echo "--> Diverged"
-        source pullActions.sh
+        update_actions
     fi
 
 }

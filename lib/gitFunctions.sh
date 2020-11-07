@@ -39,9 +39,6 @@ git_force_pull(){
     git_secure_checkout $branch_to_force_pull
     git_force_delete_local_branch temp
 
-
-
-
 }
 
 git_push(){
@@ -88,3 +85,12 @@ git_get_local_remote_compare(){
 }
 
 
+### UPDATE METHODS ###
+
+UPDATE_MERGE(){
+    git_secure_push
+}
+
+UPDATE_FORCE(){
+    git_force_pull
+}
