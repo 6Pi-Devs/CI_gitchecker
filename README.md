@@ -31,6 +31,6 @@ Git Checker
 [license-shield]: https://img.shields.io/github/license/yupipi93/gitChecker.svg?style=flat-square
 [license-url]: https://github.com/yupipi93/gitChecker/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/yupipi93
+[linkedin-url]: https://linkedin.com/in/sergio-conejero-vicente-61226aa5/
 [product-screenshot]: images/screenshot.png
 
