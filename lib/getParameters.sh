@@ -1,10 +1,10 @@
 Help(){
 
-    echo "gitChecker detect updates in you repository and apply action in project"
+    echo "gitChecker detect updates in you repository and apply you select actions in the project"
     echo
     echo "Syntax: ./gitChecker.sh [OPTIONS]"
     echo "OPTIONS:"
-    echo "-b 'branch'   Branc name to check updates.    [DEFAULT:main]"
+    echo "-b 'branch'   Branc name to check updates.    [DEFAULT:current]"
     echo "-p 'path'     Path of repository folder.      [DEFAULT:..]"
     echo "-u 'update'   Update time in minutes          [DEFAULT:10]"
     echo "-h            Print this Help."

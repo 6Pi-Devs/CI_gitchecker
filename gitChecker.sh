@@ -17,16 +17,15 @@ source lib/getParameters.sh
 
 
 git_checker(){
-
+    REMOTE_BRANCH=$1
     echo "Target repository: $(git_repo_name)"
-    echo "           Branch: $(git_branch_name)"
+    echo "           Branch: $(git_current_branch_name)"
     echo "Geting info..."     
     git_get_remote_info
 
-    UPSTREAM=${1:-'@{u}'}
-    LOCAL=$(git -C $GIT_PATH rev-parse @)
-    REMOTE=$(git -C $GIT_PATH rev-parse "$UPSTREAM")
-    BASE=$(git -C $GIT_PATH merge-base @ "$UPSTREAM")
+    LOCAL=$(git_get_local_revision)
+    REMOTE=$(git_get_remote_revision $REMOTE_BRANCH)
+    BASE=$(git_get_local_remote_compare $REMOTE_BRANCH)
 
     if [ $LOCAL = $REMOTE ]; then
 	    echo "--> Up-to-date"
@@ -56,6 +55,10 @@ next_update(){
 main(){
     while true
     do
+        if [ $BRANCH ]; then
+            echo "Change to branch: $BRANCH"
+            git_secure_checkout $BRANCH
+        fi
         git_checker $BRANCH
         next_update
     done
