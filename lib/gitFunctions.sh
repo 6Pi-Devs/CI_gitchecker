@@ -1,3 +1,4 @@
+
 ### GIT ACTIONS ###
 git_stage_changes(){
     comment=$1
@@ -66,6 +67,9 @@ git_current_branch_name(){
     git -C $GIT_PATH branch --show-current
 }
 
+
+
+### GET INFO AND COMPARE ###
 git_get_remote_info(){ 
     git -C $GIT_PATH fetch
 }
@@ -83,6 +87,8 @@ git_get_local_remote_compare(){
     UPSTREAM=${1:-'@{u}'}
     git -C $GIT_PATH merge-base @ "$UPSTREAM"
 }
+
+
 
 
 ### UPDATE METHODS ###
@@ -103,3 +109,74 @@ UPDATE_PROYECT(){
     fi
 
 }
+
+
+
+
+### GIT CONFIG ###
+git_get_name(){
+    git -C $GIT_PATH config user.name
+}
+
+git_set_name(){
+    user_name=$1
+    git -C $GIT_PATH config user.name $user_name
+}
+
+git_get_email(){
+    git -C $GIT_PATH config user.email
+}
+
+git_set_email(){
+    user_email=$1
+    git -C $GIT_PATH config user.email $user_email
+}
+
+git_is_credentials_stored(){
+    git -C $GIT_PATH config credential.helper
+}
+
+git_set_credentials(){
+    git -C $GIT_PATH config credential.helper store
+    git_get_remote_info
+}
+
+git_remove_config(){
+    git -C $GIT_PATH config --unset user.name
+    git -C $GIT_PATH config --unset user.email
+    git -C $GIT_PATH config --unset credential.helper
+}
+
+git_show_config(){
+    echo ""
+    echo "[ USING CONFIG ]"
+    echo "Name: $(git_get_name)"
+    echo "Email: $(git_get_email)"
+    echo "Credentials: $(git_is_credentials_stored)"
+    echo "--> erase config with [-r] flag"
+    echo ""
+        
+}
+
+git_initial_config(){
+    if [ ! $(git_get_name) ]; then
+        read -p "Enter your name : " imput_name
+        git_set_name $imput_name
+    fi
+
+    if [ ! $(git_get_email) ]; then
+        read -p "Enter your email : " imput_email
+        git_set_email $imput_email
+    fi
+
+    if [ ! $(git_is_credentials_stored) ]; then
+        git_set_credentials
+    fi
+
+
+}
+
+
+
+
+

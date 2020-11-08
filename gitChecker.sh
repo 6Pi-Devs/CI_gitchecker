@@ -58,15 +58,24 @@ next_update(){
     echo " "
 }
 
+set_selected_branch(){
+    set_branch=$1
+    if [ $set_branch ]; then
+        echo "Change to branch: $set_branch"
+        git_secure_checkout $set_branch
+    fi
+
+}
+
 
 ### MAIN ###
 main(){
     while true
     do
-        if [ $BRANCH ]; then
-            echo "Change to branch: $BRANCH"
-            git_secure_checkout $BRANCH
-        fi
+        git_initial_config
+        git_show_config
+
+        set_selected_branch $BRANCH
         git_checker $BRANCH
         
         next_update

@@ -75,7 +75,9 @@ OPTIONS:
 -p 'path'     Path of repository folder.          [DEFAULT:..]
 -u 'update'   Update time in minutes.             [DEFAULT:10]
 -f            Force update. Discards local files. [DEFAULT:merge]
+-r            Remove config (name,email,credentials)
 -h            Print this Help.
+
 ```
 
 If you do not add any parameters, it will take the default values.

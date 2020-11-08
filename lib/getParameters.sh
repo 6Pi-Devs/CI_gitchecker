@@ -8,6 +8,7 @@ Help(){
     echo "-p 'path'     Path of repository folder.          [DEFAULT:..]"
     echo "-u 'update'   Update time in minutes.             [DEFAULT:10]"
     echo "-f            Force update. Discards local files. [DEFAULT:merge]"
+    echo "-r            Remove config (name,email,credentials)"
     echo "-h            Print this Help."
     echo
     exit 0
@@ -16,13 +17,14 @@ Help(){
 
 
 ### GET PARAMETERS ###
-while getopts "b:p:u:fh" options;
+while getopts "b:p:u:frh" options;
 do
     case $options in
         b) BRANCH=${OPTARG};;
         p) GIT_PATH=${OPTARG};;
         u) UPDATE_TIME=${OPTARG};;
         f) FORCE_UPDATE_SELECTED=1;;
+        r) git_remove_config;;
         h) Help;;
     esac
 done
