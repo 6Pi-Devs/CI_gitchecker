@@ -178,6 +178,12 @@ npm start
 
 ```
 
+<!-- SETTING -->
+## FILES
+**These files and folders are not necessary for the execution**
+README.md
+LICENSE.txt
+images/
 
 
 <!-- LICENSE -->
