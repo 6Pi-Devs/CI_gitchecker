@@ -21,7 +21,7 @@ update_actions(){
         echo ""
         sleep 2
         echo "UPDATING PROYECT"
-        source pullActions.sh
+        source updateActions.sh
 }
 
 git_checker(){

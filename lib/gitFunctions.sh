@@ -93,19 +93,21 @@ git_get_local_remote_compare(){
 
 ### UPDATE METHODS ###
 merge_update(){
+    echo "METHOD: FORCE"
     git_secure_push
 }
 
 force_update(){
+    echo "METHOD: MERGE"
     git_force_pull
 }
 
 
 UPDATE_PROYECT(){
     if [ $FORCE_UPDATE_SELECTED ]; then
-        echo "FORCE"
+        merge_update
     else
-        echo "MERGE"
+        force_update
     fi
 
 }
@@ -138,10 +140,11 @@ git_is_credentials_stored(){
 
 git_set_credentials(){
     git -C $GIT_PATH config credential.helper store
-    git_get_remote_info
+    git_fetch
 }
 
 git_remove_config(){
+    #git -C $GIT_PATH credential-cache exit
     git -C $GIT_PATH config --unset user.name
     git -C $GIT_PATH config --unset user.email
     git -C $GIT_PATH config --unset credential.helper
