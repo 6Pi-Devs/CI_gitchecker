@@ -67,7 +67,7 @@ But surely you prefer to show the help first.
 ./gitChecker.sh -h 
 ```
 
-```sh
+```
 Syntax: ./gitChecker.sh [OPTIONS]
 OPTIONS:
 -b 'branch'   Branc name to check updates.        [DEFAULT:current]
