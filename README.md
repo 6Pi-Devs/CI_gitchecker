@@ -34,12 +34,12 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-GitChecker detects changes in your Git repository and lets you set up actions before, during, and after the project is updated.
+GitChecker detects changes in your Git repository and lets you set up actions before, during, and after the project is updated.  
 
 A recurring use case for GitChecker is when we have the backend of our app hosted on a server where we want to up updates constantly.
-GitChecker will detect the new changes in the repository and update the code with them.
+GitChecker will detect the new changes in the repository and update the code with them.  
 
-All you have to do is upload the changes to your branch and GitChecker will do the rest.
+All you have to do is upload the changes to your branch and GitChecker will do the rest.  
 
 
 ### Built With
@@ -51,13 +51,14 @@ All you have to do is upload the changes to your branch and GitChecker will do t
 <!-- GETTING STARTED -->
 ## Getting Started
 
-To get started, download GitChecker from this repository and copy it to your repository's root folder.
+To get started, download GitChecker from this repository and copy it to your repository's root folder.  
 (We recommend downloading the zip and extracting it, not cloning it)
 
 
-It is usually used in the production branch, when the code is on a remote server.
+It is usually used in the production branch, when the code is on a remote server.  
 
-To run it, you need move into the gitChecker folder and run to execute it.
+To run it, you need move into the gitChecker folder and run to execute it.  
+The script will ask you for your git credentials and start the process.
 ```sh
 ./gitChecker.sh
 ```
@@ -79,49 +80,49 @@ OPTIONS:
 
 ```
 
-IIf you don't add any parameter, it will take the default values.
+IIf you don't add any parameter, it will take the default values.  
 The opposite case, you can configure:
 
-**Establishing the branch where changes are expected**
-Flag: [-b] branch 
-Note: Normally the production branch is taken.
-By default: Will take the current branch in repo.
-Example: 
+**Establishing the branch where changes are expected**  
+Flag: [-b] branch  
+Note: Normally the production branch is taken.  
+By default: Will take the current branch in repo.  
+Example:  
 ```sh
 ./gitChecker.sh -b production
 ```
 
-**Establishing the path where the target repository is located**
-Flag: [-p] path
-Note: You don't need to configure it if you put gitChecker into the root repo folder.
-By default: Will take the ../ repository
-Example: 
+**Establishing the path where the target repository is located**  
+Flag: [-p] path  
+Note: You don't need to configure it if you put gitChecker into the root repo folder.  
+By default: Will take the ../ repository  
+Example:  
 ```sh
 ./gitChecker.sh -p /home/USERNAME/MYREPO/
 ```
 
-**Establishing time between updates.**
-Flag: [-u] update_time
-Note: The unit is in minutes.
-By default: 10 minuts
-Example: 
+**Establishing time between updates.**  
+Flag: [-u] update_time  
+Note: The unit is in minutes.  
+By default: 10 minuts  
+Example:  
 ```sh
 ./gitChecker.sh -u 1
 ```
 
-**Establishing the update method**
-Flag: [-f] 
-Note: You can choose between merged or forced.
-Merge: Merges local changes with remote changes. (may cause conflicts)
-Force: Discards local changes.
-By default: Merge method
-Example: 
+**Establishing the update method**  
+Flag: [-f]  
+Note: You can choose between merged or forced.  
+Merge: Merges local changes with remote changes. (may cause conflicts)  
+Force: Discards local changes.  
+By default: Merge method  
+Example:  
 ```sh
 ./gitChecker.sh -f
 ```
 
-**Concatenating flags**
-Example: 
+**Concatenating flags**  
+Example:   
 ```sh
 ./gitChecker.sh -b production -p /home/USERNAME/MyRepo/ -u 1 -f
 ```
@@ -129,8 +130,8 @@ Example:
 
 <!-- SETTING -->
 ## SETTING
-**Editing the update actions file**
-you should edit the **updateAction.sh** file to add your own commands
+**Editing the update actions file**  
+you should edit the **updateAction.sh** file to add your own commands  
 
 ```sh
 #####################
@@ -151,11 +152,11 @@ echo "AFTER ACTIONS"
 #PUT HERE YOR COMANDS
 ```
 
-Under the section "BEFORE" add the commands you want to execute before the update, for example stopping the server
+Under the section "BEFORE" add the commands you want to execute before the update, for example stopping the server.  
 
-Under the section "AFTER" add the commands you want to execute after the update, for example install dependences and start the server again.
+Under the section "AFTER" add the commands you want to execute after the update, for example install dependences and start the server again.  
 
-Example:
+Example:  
 
 ```sh
 #####################
@@ -180,18 +181,18 @@ npm start
 
 <!-- SETTING -->
 ## FILES
-**These files and folders are not necessary for the execution**
-README.md
-LICENSE.txt
-images/
+**These files and folders are not necessary for the execution**  
+README.md  
+LICENSE.txt  
+images/  
 
 
 <!-- LICENSE -->
 ## License
 
-Public Domain.
-Distributed under CC0 License. See `LICENSE.txt` for more information.
-Free for all :D
+Public Domain.  
+Distributed under CC0 License. See `LICENSE.txt` for more information.  
+Free for all :D  
 
 
 <!-- CONTACT -->
