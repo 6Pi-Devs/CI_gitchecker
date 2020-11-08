@@ -57,18 +57,17 @@ To get started, download GitChecker from this repository and copy it to your rep
 
 It is usually used in the production branch, when the code is on a remote server.
 
-To run it, you need to go into the gitChecker folder and run 
+To run it, you need move into the gitChecker folder and run to execute it.
 ```sh
 ./gitChecker.sh
 ```
 
-Or you can run 
+But surely you prefer to show the help first. 
 ```sh
 ./gitChecker.sh -h 
 ```
-to display help.
 
-```
+```sh
 Syntax: ./gitChecker.sh [OPTIONS]
 OPTIONS:
 -b 'branch'   Branc name to check updates.        [DEFAULT:current]
@@ -80,37 +79,105 @@ OPTIONS:
 
 ```
 
-If you do not add any parameters, it will take the default values.
+IIf you don't add any parameter, it will take the default values.
 The opposite case, you can configure:
 
-The branch where the changes are expected (usually the production branch)
+**Establishing the branch where changes are expected**
+Flag: [-b] branch 
+Note: Normally the production branch is taken.
+By default: Will take the current branch in repo.
 Example: 
 ```sh
 ./gitChecker.sh -b production
 ```
 
-The path where the target repository is located (you don't need to configure it if you put gitChecker into the root folder)
+**Establishing the path where the target repository is located**
+Flag: [-p] path
+Note: You don't need to configure it if you put gitChecker into the root repo folder.
+By default: Will take the ../ repository
 Example: 
 ```sh
 ./gitChecker.sh -p /home/USERNAME/MYREPO/
 ```
 
-The waiting time between updates (default 10 minutes)
-Example: ./gitChecker.sh -u 1 (will check for updates every 1 minute)
+**Establishing time between updates.**
+Flag: [-u] update_time
+Note: The unit is in minutes.
+By default: 10 minuts
+Example: 
+```sh
+./gitChecker.sh -u 1
+```
 
-If we want to force the update (default merged)
-Example 
+**Establishing the update method**
+Flag: [-f] 
+Note: You can choose between merged or forced.
+Merge: Merges local changes with remote changes. (may cause conflicts)
+Force: Discards local changes.
+By default: Merge method
+Example: 
 ```sh
 ./gitChecker.sh -f
 ```
-You can choose the update method: Merged or Forced.
-Merged (default): Merges local changes with remote changes. (may cause conflicts)
-Forced: Discards local changes. (-f)
 
-Complete example: 
+**Concatenating flags**
+Example: 
 ```sh
 ./gitChecker.sh -b production -p /home/USERNAME/MyRepo/ -u 1 -f
 ```
+
+
+<!-- SETTING -->
+## SETTING
+**Editing the update actions file**
+you should edit the **updateAction.sh** file to add your own commands
+
+```sh
+#####################
+###    BERFORE    ###
+#####################
+echo "BEFORE ACTIONS"
+#PUT HERE YOR COMANDS
+
+#####################
+###    UPDATE     ###
+#####################
+UPDATE_PROYECT #DONT TOUCH THIS LINE!!
+
+#####################
+###     AFTER     ###
+#####################
+echo "AFTER ACTIONS"
+#PUT HERE YOR COMANDS
+```
+
+Under the section "BEFORE" add the commands you want to execute before the update, for example stopping the server
+
+Under the section "AFTER" add the commands you want to execute after the update, for example install dependences and start the server again.
+
+Example:
+
+```sh
+#####################
+###    BERFORE    ###
+#####################
+echo "BEFORE ACTIONS"
+npm stop
+
+#####################
+###    UPDATE     ###
+#####################
+UPDATE_PROYECT #DONT TOUCH THIS LINE!!
+
+#####################
+###     AFTER     ###
+#####################
+echo "AFTER ACTIONS"
+npm i
+npm start
+
+```
+
 
 
 <!-- LICENSE -->

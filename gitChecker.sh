@@ -20,7 +20,7 @@ source lib/getParameters.sh
 update_actions(){
         echo ""
         sleep 2
-        echo "UPDATING PROYECT"
+        echo "UPDATING PROJECT"
         source updateActions.sh
 }
 

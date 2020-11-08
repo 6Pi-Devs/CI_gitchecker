@@ -93,21 +93,23 @@ git_get_local_remote_compare(){
 
 ### UPDATE METHODS ###
 merge_update(){
-    echo "METHOD: FORCE"
-    git_secure_push
+    echo ""
+    echo "METHOD: MERGE"
+    git_secure_pull
 }
 
 force_update(){
-    echo "METHOD: MERGE"
+    echo ""
+    echo "METHOD: FORCE"
     git_force_pull
 }
 
 
 UPDATE_PROYECT(){
     if [ $FORCE_UPDATE_SELECTED ]; then
-        merge_update
-    else
         force_update
+    else
+        merge_update
     fi
 
 }
