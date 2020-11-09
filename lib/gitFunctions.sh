@@ -64,7 +64,9 @@ git_repo_name(){
 }
 
 git_current_branch_name(){
-    git -C $GIT_PATH branch --show-current
+    #Only avaible in git version 2.22
+    #git -C $GIT_PATH branch --show-current
+    git -C $GIT_PATH rev-parse --symbolic-full-name --abbrev-ref HEAD
 }
 
 
