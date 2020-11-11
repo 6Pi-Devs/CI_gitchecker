@@ -10,7 +10,7 @@
 BRANCH=
 GIT_PATH=".."
 UPDATE_TIME=10 #in minutes
-FORCE_UPDATE_SELECTED=
+MERGE_UPDATE_SELECTED=
 
 ### IMPORT ###
 source lib/gitFunctions.sh

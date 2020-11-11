@@ -74,10 +74,9 @@ OPTIONS:
 -b 'branch'   Branc name to check updates.        [DEFAULT:current]
 -p 'path'     Path of repository folder.          [DEFAULT:..]
 -u 'update'   Update time in minutes.             [DEFAULT:10]
--f            Force update. Discards local files. [DEFAULT:merge]
+-m            Merge update. Merge local files.    [DEFAULT:force]
 -r            Remove config (name,email,credentials)
 -h            Print this Help.
-
 ```
 
 IIf you don't add any parameter, it will take the default values.  
@@ -111,20 +110,20 @@ Example:
 ```
 
 **Establishing the update method**  
-Flag: [-f]  
-Note: You can choose between merged or forced.  
+Flag: [-m]  
+Note: You can choose between forced or merged.    
+Force: Discards local changes. (Recomended)
 Merge: Merges local changes with remote changes. (may cause conflicts)  
-Force: Discards local changes.  
-By default: Merge method  
+By default: Force method   
 Example:  
 ```sh
-./gitChecker.sh -f
+./gitChecker.sh -m
 ```
 
 **Concatenating flags**  
 Example:   
 ```sh
-./gitChecker.sh -b production -p /home/USERNAME/MyRepo/ -u 1 -f
+./gitChecker.sh -b production -p /home/USERNAME/MyRepo/ -u 1 -m
 ```
 
 
@@ -163,7 +162,7 @@ Example:
 ###    BERFORE    ###
 #####################
 echo "BEFORE ACTIONS"
-npm stop
+docker rm -f container
 
 #####################
 ###    UPDATE     ###
@@ -174,8 +173,7 @@ UPDATE_PROYECT #DONT TOUCH THIS LINE!!
 ###     AFTER     ###
 #####################
 echo "AFTER ACTIONS"
-npm i
-npm start
+docker run...
 
 ```
 

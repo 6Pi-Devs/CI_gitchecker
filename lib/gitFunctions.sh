@@ -27,7 +27,7 @@ git_pull(){
     git -C $GIT_PATH pull
 }
 
-git_secure_pull(){
+git_merge_pull(){
     git_stage_changes "auto_commit"
     git_pull
 }
@@ -97,7 +97,7 @@ git_get_local_remote_compare(){
 merge_update(){
     echo ""
     echo "METHOD: MERGE"
-    git_secure_pull
+    git_merge_pull
 }
 
 force_update(){
@@ -108,10 +108,10 @@ force_update(){
 
 
 UPDATE_PROYECT(){
-    if [ $FORCE_UPDATE_SELECTED ]; then
-        force_update
-    else
+    if [ $MERGE_UPDATE_SELECTED ]; then
         merge_update
+    else
+        force_update
     fi
 
 }
