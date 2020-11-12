@@ -4,27 +4,37 @@
 ###  GIT CHECKER   ###
 ### Auth: Yupipi93 ###
 ######################
-
+### EVIROMENTS ###
+ENV_PATH="gitChecker/"
 
 ### GLOBAL ###
 BRANCH=
-GIT_PATH=".."
+GIT_PATH="."
 UPDATE_TIME=10 #in minutes
 MERGE_UPDATE_SELECTED=
 
+ls -al
+
+import(){
+    file_path=$1
+    source "$ENV_PATH$file_path"
+}
+
+
 ### IMPORT ###
-source lib/gitFunctions.sh
-source lib/getParameters.sh
+import lib/gitFunctions.sh
+import lib/getParameters.sh
+
 
 
 update_actions(){
-        echo ""
-        echo "STOP ACTIONS"
-        source stopActions.sh
-        echo "UPDATING PROJECT"
-	UPDATE_PROYECT
-        echo "START ACTIONS"
-        source startActions.sh
+    echo ""
+    echo "STOP ACTIONS"
+    import stopActions.sh
+    echo "UPDATING PROJECT"
+    UPDATE_PROYECT
+    echo "START ACTIONS"
+    import startActions.sh
 }
 
 git_checker(){
@@ -74,7 +84,7 @@ set_selected_branch(){
 ### MAIN ###
 main(){
     echo "START ACTIONS"
-    source startActions.sh
+    import startActions.sh
     while true
     do
         git_initial_config

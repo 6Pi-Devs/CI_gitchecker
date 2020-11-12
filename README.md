@@ -57,15 +57,15 @@ To get started, download GitChecker from this repository and copy it to your rep
 
 It is usually used in the production branch, when the code is on a remote server.  
 
-To run it, you need move into the gitChecker folder and run to execute it.  
+To run it, you need move into your root folder repository, and write the next command.  
 The script will ask you for your git credentials and start the process.
 ```sh
-./gitChecker.sh
+./gitChecker/gitChecker.sh
 ```
 
 But surely you prefer to show the help first. 
 ```sh
-./gitChecker.sh -h 
+./gitChecker/gitChecker.sh -h 
 ```
 
 ```
@@ -88,16 +88,16 @@ Note: Normally the production branch is taken.
 By default: Will take the current branch in repo.  
 Example:  
 ```sh
-./gitChecker.sh -b production
+./gitChecker/gitChecker.sh -b production
 ```
 
 **Establishing the path where the target repository is located**  
 Flag: [-p] path  
 Note: You don't need to configure it if you put gitChecker into the root repo folder.  
-By default: Will take the ../ repository  
+By default: Will take the ./ repository.  
 Example:  
 ```sh
-./gitChecker.sh -p /home/USERNAME/MYREPO/
+./gitChecker/gitChecker.sh -p /home/USERNAME/MYREPO/
 ```
 
 **Establishing time between updates.**  
@@ -106,7 +106,7 @@ Note: The unit is in minutes.
 By default: 10 minuts  
 Example:  
 ```sh
-./gitChecker.sh -u 1
+./gitChecker/gitChecker.sh -u 1
 ```
 
 **Establishing the update method**  
@@ -117,64 +117,65 @@ Merge: Merges local changes with remote changes. (may cause conflicts)
 By default: Force method   
 Example:  
 ```sh
-./gitChecker.sh -m
+./gitChecker/gitChecker.sh -m
 ```
 
 **Concatenating flags**  
 Example:   
 ```sh
-./gitChecker.sh -b production -p /home/USERNAME/MyRepo/ -u 1 -m
+./gitChecker/gitChecker.sh -b production -p /home/USERNAME/MyRepo/ -u 1 -m
 ```
 
 
 <!-- SETTING -->
 ## SETTING
-**Editing the update actions file**  
-you should edit the **updateAction.sh** file to add your own commands  
+**Adding your config**  
 
+PIPELINE:  
+Execute start actions (first time)  
+Check for updates  
+  Stop actions  
+  Update Proyect  
+  Start options  
+Check for updates  
+...  
+
+
+You should edit the **startAction.sh** and **stopAction.sh** files to add your own commands  
+**startAction.sh** example:
 ```sh
-#####################
-###    BERFORE    ###
-#####################
-echo "BEFORE ACTIONS"
-#PUT HERE YOR COMANDS
-
-#####################
-###    UPDATE     ###
-#####################
-UPDATE_PROYECT #DONT TOUCH THIS LINE!!
-
-#####################
-###     AFTER     ###
-#####################
-echo "AFTER ACTIONS"
-#PUT HERE YOR COMANDS
+#########################
+####  START ACTIONS  ####
+#########################
+#WRITE HERE YOUR CODE
 ```
 
-Under the section "BEFORE" add the commands you want to execute before the update, for example stopping the server.  
-
-Under the section "AFTER" add the commands you want to execute after the update, for example install dependences and start the server again.  
-
-Example:  
-
+**stopAction.sh** example:
 ```sh
-#####################
-###    BERFORE    ###
-#####################
-echo "BEFORE ACTIONS"
-docker rm -f container
+#########################
+####  STOP ACTIONS   ####
+#########################
+#WRITE HERE YOUR CODE
+```
 
-#####################
-###    UPDATE     ###
-#####################
-UPDATE_PROYECT #DONT TOUCH THIS LINE!!
+In the file "START ACTIONS" add the commands you want to execute first time and after each update, for example install dependences and start the server again.
 
-#####################
-###     AFTER     ###
-#####################
-echo "AFTER ACTIONS"
-docker run...
+In the file "STOP ACTIONS" add the commands you want to execute before the update, for example stopping the server.  
 
+**startAction.sh** example:
+```sh
+#########################
+####  START ACTIONS  ####
+#########################
+docker-compose stop
+```
+
+**stopAction.sh** example:
+```sh
+#########################
+####  STOP ACTIONS   ####
+#########################
+#WRITE HERE YOUR CODE
 ```
 
 <!-- SETTING -->

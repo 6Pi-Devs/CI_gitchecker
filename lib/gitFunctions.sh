@@ -162,7 +162,6 @@ git_show_config(){
     echo "Credentials: $(git_is_credentials_stored)"
     echo "--> erase config with [-r] flag"
     echo ""
-        
 }
 
 git_initial_config(){
