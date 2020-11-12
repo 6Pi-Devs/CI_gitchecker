@@ -167,7 +167,8 @@ In the file "STOP ACTIONS" add the commands you want to execute before the updat
 #########################
 ####  START ACTIONS  ####
 #########################
-docker-compose stop
+npm i
+docker-compose up
 ```
 
 **stopAction.sh** example:
@@ -175,7 +176,7 @@ docker-compose stop
 #########################
 ####  STOP ACTIONS   ####
 #########################
-#WRITE HERE YOUR CODE
+docker-compose stop
 ```
 
 <!-- SETTING -->
