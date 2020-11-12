@@ -19,16 +19,19 @@ source lib/getParameters.sh
 
 update_actions(){
         echo ""
-        sleep 2
+        echo "STOP ACTIONS"
+        source stopActions.sh
         echo "UPDATING PROJECT"
-        source updateActions.sh
+	UPDATE_PROYECT
+        echo "START ACTIONS"
+        source startActions.sh
 }
 
 git_checker(){
     REMOTE_BRANCH=$1
     echo "Target repository: $(git_repo_name)"
     echo "           Branch: $(git_current_branch_name)"
-    echo "Geting info..."     
+    echo "Geting info..."
     git_get_remote_info
 
     LOCAL=$(git_get_local_revision)
@@ -70,6 +73,8 @@ set_selected_branch(){
 
 ### MAIN ###
 main(){
+    echo "START ACTIONS"
+    source startActions.sh
     while true
     do
         git_initial_config
@@ -77,7 +82,7 @@ main(){
 
         set_selected_branch $BRANCH
         git_checker $BRANCH
-        
+
         next_update
     done
 }
