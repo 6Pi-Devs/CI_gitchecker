@@ -13,7 +13,6 @@ GIT_PATH="."
 UPDATE_TIME=10 #in minutes
 MERGE_UPDATE_SELECTED=
 
-ls -al
 
 import(){
     file_path=$1
