@@ -4,7 +4,9 @@
 ###  GIT CHECKER   ###
 ### Auth: Yupipi93 ###
 ######################
-### EVIROMENTS ###
+
+
+### ENVIRONMENTS ###
 ENV_PATH="gitChecker/"
 
 ### GLOBAL ###
@@ -21,8 +23,8 @@ import(){
 
 
 ### IMPORT ###
-import lib/gitFunctions.sh
-import lib/getParameters.sh
+source $ENV_PATH"lib/gitFunctions.sh"
+source $ENV_PATH"lib/getParameters.sh"
 
 
 
