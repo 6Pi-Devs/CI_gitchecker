@@ -7,7 +7,7 @@
 
 
 ### ENVIRONMENTS ###
-ENV_PATH="gitChecker/"
+ENV_PATH="CI_gitchecker/"
 
 ### GLOBAL ###
 BRANCH=
