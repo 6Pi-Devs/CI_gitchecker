@@ -13,7 +13,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/yupipi93/gitChecker">
-    <img src="images/logo.png" alt="Logo" width="120" height="120">
+    <img src="images/logo.png" alt="Logo" width="300" height="300">
   </a>
 
   <h3 align="center">GIT CHECKER - [BASH]</h3>
@@ -52,20 +52,20 @@ All you have to do is upload the changes to your branch and GitChecker will do t
 ## Getting Started
 
 To get started, download GitChecker from this repository and copy it to your repository's root folder.  
-(We recommend downloading the zip and extracting it, not cloning it)
+(I recomend remove .git folder)
 
 
-It is usually used in the production branch, when the code is on a remote server.  
+It is usually used in the develop branch, when the code is on a remote server.  
 
 To run it, you need move into your root folder repository, and write the next command.  
 The script will ask you for your git credentials and start the process.
 ```sh
-./gitChecker/gitChecker.sh
+./CI_gitchecker/gitChecker.sh
 ```
 
 But surely you prefer to show the help first. 
 ```sh
-./gitChecker/gitChecker.sh -h 
+./CI_gitchecker/gitChecker.sh -h 
 ```
 
 ```
@@ -73,7 +73,7 @@ Syntax: ./gitChecker.sh [OPTIONS]
 OPTIONS:
 -b 'branch'   Branc name to check updates.        [DEFAULT:current]
 -p 'path'     Path of repository folder.          [DEFAULT:..]
--u 'update'   Update time in minutes.             [DEFAULT:10]
+-u 'update'   Update time in minutes.             [DEFAULT:1]
 -m            Merge update. Merge local files.    [DEFAULT:force]
 -r            Remove config (name,email,credentials)
 -h            Print this Help.
@@ -88,25 +88,25 @@ Note: Normally the production branch is taken.
 By default: Will take the current branch in repo.  
 Example:  
 ```sh
-./gitChecker/gitChecker.sh -b production
+./CI_gitchecker/gitChecker.sh -b production
 ```
 
 **Establishing the path where the target repository is located**  
 Flag: [-p] path  
-Note: You don't need to configure it if you put gitChecker into the root repo folder.  
+Note: You don't need to configure it if you put CI_gitchecker into the root repo folder.  
 By default: Will take the ./ repository.  
 Example:  
 ```sh
-./gitChecker/gitChecker.sh -p /home/USERNAME/MYREPO/
+./CI_gitchecker/gitChecker.sh -p /home/USERNAME/MYREPO/
 ```
 
 **Establishing time between updates.**  
 Flag: [-u] update_time  
 Note: The unit is in minutes.  
-By default: 10 minuts  
+By default: 1 minuts  
 Example:  
 ```sh
-./gitChecker/gitChecker.sh -u 1
+./CI_gitchecker/gitChecker.sh -u 10
 ```
 
 **Establishing the update method**  
@@ -117,13 +117,13 @@ Merge: Merges local changes with remote changes. (may cause conflicts)
 By default: Force method   
 Example:  
 ```sh
-./gitChecker/gitChecker.sh -m
+./CI_gitchecker/gitChecker.sh -m
 ```
 
 **Concatenating flags**  
 Example:   
 ```sh
-./gitChecker/gitChecker.sh -b production -p /home/USERNAME/MyRepo/ -u 1 -m
+./CI_gitchecker/gitChecker.sh -b production -p /home/USERNAME/MyRepo/ -u 1 -m
 ```
 
 
@@ -167,8 +167,7 @@ In the file "STOP ACTIONS" add the commands you want to execute before the updat
 #########################
 ####  START ACTIONS  ####
 #########################
-npm i
-docker-compose up
+docker-compose up --build &
 ```
 
 **stopAction.sh** example:

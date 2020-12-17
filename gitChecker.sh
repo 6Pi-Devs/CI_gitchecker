@@ -12,7 +12,7 @@ ENV_PATH="CI_gitchecker/"
 ### GLOBAL ###
 BRANCH=
 GIT_PATH="."
-UPDATE_TIME=10 #in minutes
+UPDATE_TIME=1 #in minutes
 MERGE_UPDATE_SELECTED=
 
 
